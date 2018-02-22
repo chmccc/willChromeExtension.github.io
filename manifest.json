@@ -1,12 +1,13 @@
 {
 "manifest_version": 2,
 "name": "Sensible Weather",
-"description": "This extension will return simple weather obs for a site",
-"version": "1.0",
+"description": "This extension will return simple weather obs for a site closest to a user's location, as determined from IP-geolocation services.",
+"version": "2.2",
 
 "browser_action": {
   "default_icon": "day16.png",
-  "default_popup": "popup.html" 
+  "default_popup": "popup.html", 
+  "default_title": "Weather at your location"
  },
 
  "icons": { "16": "day16.png",
@@ -14,10 +15,10 @@
             "128": "day128.png"
           },
 
-"manifest_version": 2,
-"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+ "content_security_policy": "script-src https://ipinfo.io/json/ https://api.mesowest.net/ https://synopticlabs.org/api/mesonet/ https://*.github.com/ https://rawgit.com/fairlycasual/willChromeExtension.github.io/master/popupObsAsync.js 'unsafe-eval'; connect-src https://api.mesowest.net/ https://ipinfo.io/json/ https://*rawgit.com/ 'unsafe-inline'; object-src https://ipinfo.io/json/ https://api.mesowest.net/",
 
-"permissions": [
-  "activeTab"
- ]
+ "permissions": [
+   "activeTab",
+   "https://*.api.mesowest.net/"
+  ]
 }
