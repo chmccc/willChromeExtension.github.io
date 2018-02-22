@@ -2,8 +2,9 @@ async function getObs() {
   var info = await fetch(`https://ipinfo.io/json/`)
     .then(resp => resp.json())
     .catch(error => console.log('ipinfo.io error: ' + error));
+    console.log(info.loc);
 
-  var obs = await fetch(`https://api.mesowest.net/v2/stations/nearesttime?&radius=${info.loc},100&limit=1&units=ENGLISH&token=804c1eb09a394255beef8e84b68123bf&vars=air_temp,wind_speed`)
+  var obs = await fetch('https://api.mesowest.net/v2/stations/nearesttime?&radius='${info.loc}',100&limit=1&units=ENGLISH&token=804c1eb09a394255beef8e84b68123bf&vars=air_temp,wind_speed')
   .then(resp => resp.json())
   .catch(error => console.log('MesoWest request Error! Network Error?' + error));
 
